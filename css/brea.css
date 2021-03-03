@@ -1,0 +1,101 @@
+/*
+* Brea v0
+*/
+
+
+/* CSS Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+html {
+    --color-white: #fff;
+    --color-air: #f2f0f1;
+
+    --color-water: #92bac2;
+    --color-wave: #005664;
+    --color-dark-wave: #073f4d;
+
+    --color-trust: #8e503e;
+    --color-warmth: #b2795f;
+    
+    --text-color-normal: var(--color-trust);
+    --text-color-alternative: var(--color-wave);
+
+    --background-color: var(--color-air);
+
+    /* 62.5% of typical 16px browser default = 10px */
+    --base-font-size: 62.5%;
+
+    --max-width: 90em;
+}
+
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    color: var(--text-color-normal); 
+    background-color: var(--background-color);;
+}
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    letter-spacing: normal;
+}
+
+h1 { font-size: 3.375rem; line-height: 1.0; text-transform: uppercase; }
+h2 { font-size: 2.75rem; line-height: 1.09; letter-spacing: -0.16rem; }
+h3 { font-size: 1.875rem; line-height: 1.47; letter-spacing: -0.005rem; font-weight: 500; }
+h4 { font-size: 1.125rem; line-height: 1.67; letter-spacing: 0.1rem; font-weight: bold; }
+h5 { font-size: 1.125rem; line-height: 1.67; letter-spacing: 0.1rem; font-weight: bold; color: var(--text-color-alternative); }
+h6 { font-size: 1.0rem; line-height: 1.6; color: var(--text-color-alternative); }
+
+/* Customs
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#coming-soon {
+    position: relative;
+    width: 15.625em;
+    height: 15.625em;
+}
+
+#app {
+    border-radius: 2.75em;
+    width: 100%;
+}
+
+#bubble {
+    position: absolute;
+    top: -3.75em;
+    right: -1.875em;
+    z-index: 10;
+}
+
+#bubble h3 {
+    position: absolute;
+    top: 2.6em;
+    left: 0;
+    color: var(--color-white);
+    text-align: center;
+}
