@@ -1,9 +1,31 @@
 /*
-* Brea v0
+*   Brea v1.0.0
+*
+*   Table of Contents
+*   ======================
+*
+*    1. Variables
+*    2. Base Styles
+*    3. Typography
+*    4. Lists
+*    5. Layout
+*    6. Grid
+*    7. Components
+*       7.1 Buttons
+*       7.2 Rectangles
+*       7.3 Bubbles
+*    8. Header
+*       8.1 Hero Area
+*    9. Main
+*       9.1 Imprint
+*   10. Footer
+*
+*   ======================
+*
 */
 
 
-/* CSS Variables
+/* 1. Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 html {
@@ -20,82 +42,1105 @@ html {
     --text-color-normal: var(--color-trust);
     --text-color-alternative: var(--color-wave);
 
-    --background-color: var(--color-air);
+    --background-color: var(--color-white);
 
-    /* 62.5% of typical 16px browser default = 10px */
-    --base-font-size: 62.5%;
+    /* 100% = 16px | 75% = 12px */
+    --base-font-size: 75%;
 
-    --max-width: 90em;
+    --max-width: 1440px;
+    --content-max-width: 1140px;
+    --grid-max-width: var(--content-max-width);
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    html {
+        --base-font-size: 100%;
+    }
 }
 
 
-/* Base Styles
+/* 2. Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 html {
     font-size: var(--base-font-size);
     scroll-behavior: smooth;
+    min-width: 320px;
 }
 
 body {
-    font-size: 1.6rem;
-    line-height: 1.6;
+    font-size: var(--base-font-size);
     font-weight: 400;
     font-family: "Lato", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
     color: var(--text-color-normal); 
-    background-color: var(--background-color);;
+    background-color: var(--background-color);
+}
+
+.lock {
+    overflow: hidden;
+    height: 100%;
 }
 
 
-/* Typography
+/* 3. Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+.opensans {
+    font-family: "Open Sans", sans-serif;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/* Mobile to Tablet based on 68.75% (11px) font size */
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 2rem;
+    margin: 0 0 21px 0;
     font-weight: normal;
+    font-style: normal;
     letter-spacing: normal;
 }
 
-h1 { font-size: 3.375rem; line-height: 1.0; text-transform: uppercase; }
-h2 { font-size: 2.75rem; line-height: 1.09; letter-spacing: -0.16rem; }
-h3 { font-size: 1.875rem; line-height: 1.47; letter-spacing: -0.005rem; font-weight: 500; }
-h4 { font-size: 1.125rem; line-height: 1.67; letter-spacing: 0.1rem; font-weight: bold; }
-h5 { font-size: 1.125rem; line-height: 1.67; letter-spacing: 0.1rem; font-weight: bold; color: var(--text-color-alternative); }
-h6 { font-size: 1.0rem; line-height: 1.6; color: var(--text-color-alternative); }
+h1 { font-size: 2.727rem; line-height: 0.93; letter-spacing: -0.47px}
+h2 { font-size: 2.091rem; line-height: 1.22; letter-spacing: -0.58px; }
+h3 { font-size: 1.636rem; line-height: 1.56; letter-spacing: -0.56px; font-weight: 500; }
+h4 { font-size: 1.091rem; line-height: 2.00; font-weight: bold; }
+h5 { font-size: 1.091rem; line-height: 2.00; font-weight: bold; color: var(--text-color-alternative); }
+h6 { font-size: 1.091rem; line-height: 2.00; color: var(--text-color-alternative); }
 
-/* Customs
+p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.125rem;
+    text-align: justify;
+    line-height: 1.45;
+}
+
+a {
+    color: var(--color-wave);
+    text-decoration: none;
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.0625em;
+}
+
+/* Tablet to Desktop based on 100% (16px) font size */
+@media (min-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 32px 0;
+    }
+
+    h1 { font-size: 2.250rem; line-height: 0.89; letter-spacing: -1.00px; }
+    h2 { font-size: 2.000rem; line-height: 1.25; letter-spacing: -0.80px; }
+    h3 { font-size: 1.500rem; line-height: 1.50; letter-spacing: -0.60px; font-weight: 500; }
+    h4 { font-size: 0.875rem; line-height: 1.71; font-weight: bold; }
+    h5 { font-size: 0.750rem; line-height: 2.67; letter-spacing: 0.80px; font-weight: bold; }
+    h6 { font-size: 0.750rem; line-height: 2.67; letter-spacing: 0.80px; }
+
+    p {
+        text-align: left;
+    }
+}
+
+/* Desktop and Beyond based on 100% (16px) font size */
+@media (min-width: 900px) {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 32px 0;
+    }
+
+    h1 { font-size: 3.375rem; line-height: 1.00; }
+    h2 { font-size: 2.750rem; line-height: 1.09; letter-spacing: -1.60px; }
+    h3 { font-size: 1.875rem; line-height: 1.47; letter-spacing: -0.05px; font-weight: 500; }
+    h4 { font-size: 1.125rem; line-height: 1.67; letter-spacing: 1.00px; font-weight: bold; }
+    h5 { font-size: 1.125rem; line-height: 1.67; letter-spacing: 1.00px; font-weight: bold; }
+    h6 { font-size: 1.000rem; line-height: 1.67; letter-spacing: 1.00px; font-weight: bold; }
+}
+
+@media (max-width: 767px) {
+    a:hover, a:focus {
+        text-decoration: underline;
+    }
+}
+
+.white {
+    color: var(--color-white);
+}
+
+.wave {
+    color: var(--color-wave);
+}
+
+.warmth {
+    color: var(--color-warmth);
+}
+
+.water {
+    color: var(--color-water);
+}
+
+.center {
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.pr21 {
+    padding-right: 21px;
+}
+
+.pb120 {
+    padding-bottom: 120px;
+}
+
+.pt76 {
+    padding-top: 76px;
+}
+
+.mtb16 {
+    margin: 16px 0 16px 0;
+}
+
+.mb0 {
+    margin-bottom: 0px;
+}
+
+
+/* 4. Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-#content {
-    display: flex;
+ul {
+    list-style: circle inside; 
+}
+  
+ol {
+    list-style: decimal inside;
+}
+
+ol, ul {
+    padding-left: 0;
+    margin-top: 0;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+    font-size: 100%;
+    margin: 16px 0;
+    color: var(--color-wave);
+}
+
+li {
+    margin-bottom: 9px;
+}
+
+
+/* 5. Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    background-color: var(--color-air);
+}
+
+.header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+main {
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 150px;
+}
+
+.wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.content {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background-color: var(--color-wave);
+}
+
+.container {
+    position: relative;
+    margin: 21px;
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    main {
+        padding-bottom: 177px;
+    }
+
+    footer {
+        height: 177px;
+    }
+
+    .container {
+        width: calc(100% - 74px);
+        margin: 21px 37px;
+    }
+}
+
+
+/* 6. Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.grid {
+    position: relative;
+    display: grid;
+    margin: 0 auto;
+    max-width: var(--grid-max-width);
+    grid-template-columns: minmax(278px, 1fr);
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    .double {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-item.left:nth-child(1) {
+        order: 2;
+    }
+    .grid-item.left:nth-child(2) {
+        order: 1;
+    }
+}
+
+
+/* 7. Components - 7.1 Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.button {
+    /* -webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s; */
+	transition-duration: 0.2s;
+    /* -webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; */
+	user-select: none;
+    /* -webkit-border-radius: 50px;
+	-moz-border-radius: 50px; */
+    border-radius: 50px;
+    border: 2px solid var(--color-white);
+}
+
+.button-trust {
+    transition-duration: 0.2s;
+    user-select: none;
+    padding: 16px 24px;
+    font-size: 1.125rem;
+    font-weight: normal;
+    letter-spacing: 0.8;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-white);
+    border-radius: 50px;
+    background-color: var(--color-trust);
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    .button {
+        border: 2px solid var(--color-wave);
+    }
+
+    .button:hover, .button:focus {
+        color: var(--color-white);
+        background-color: var(--color-wave);
+    }
+
+    .button:active {
+        color: var(--color-white);
+        background-color: var(--color-dark-wave);
+    }
+
+    .button-trust {
+        padding: 24px 32px;
+    }
+
+    .button-trust:hover, .button-trust:focus {
+        background-color: var(--color-warmth);  
+    }
+}
+
+
+/* 7. Components - 7.2 Rectangles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.rect-16x2 {
+    float: right;
+    width: 16px;
+    height: 2px;
+    margin: 0 0 4px;
+    background-color: var(--color-wave);
+}
+
+.rect-8x2 {
+    float: right;
+    width: 8px;
+    height: 2px;
+    margin: 0 0 4px;
+    background-color: var(--color-wave);
+}
+
+/* 7. Components - 7.3 Bubbles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.bubble-air {
+    background-repeat: no-repeat;
+    background-image: url("../images/brea-bubble-air.png");
+}
+
+.bubble-warmth {
+    background-repeat: no-repeat;
+    background-image: url("../images/brea-bubble-warmth.png");
+}
+
+.bubble-water {
+    background-repeat: no-repeat;
+    background-image: url("../images/brea-bubble-water.png");
+}
+
+.bubble-white {
+    background-repeat: no-repeat;
+    background-image: url("../images/brea-bubble-white.png");
+}
+
+
+/* 8. Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#logo {
+    width: 119px;
+    height: 82px;
+}
+
+.navbar {
+    position: relative;
+    min-height: 82px;
+}
+
+nav {
+    display: none;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-#coming-soon {
-    position: relative;
-    width: 15.625em;
-    height: 15.625em;
-}
-
-#app {
-    border-radius: 2.75em;
+    position: absolute;
+    z-index: 100;
+    top: 0;
     width: 100%;
+    min-height: 100vh;
+    opacity: 80%;
+    background-color: var(--color-wave);
 }
 
-#bubble {
-    position: absolute;
-    top: -3.75em;
-    right: -1.875em;
-    z-index: 10;
+nav.show {
+    display: flex;
 }
 
-#bubble h3 {
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    display: block;
+    padding: 16px;
+    font-size: 1.636rem;
+    font-weight: 500;
+    letter-spacing: 0.9;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-white);
+}
+
+#nav-btn-open {
+    display: block;
     position: absolute;
-    top: 2.6em;
-    left: 0;
+    width: 16px;
+    height: 22px;
+    top: 30px;
+    right: 21px;
+}
+
+#nav-btn-open.show {
+    display: none;
+}
+
+#nav-btn-close {
+    display: block;
+    position: absolute;
+    height: 22px;
+    top: 30px;
+    right: 21px;
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    #logo {
+        width: 209px;
+        height: 146px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        min-height: 146px;
+        background-color: transparent;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 34px;
+        right: 27px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .nav-item {
+        display: block;
+        float: left;
+        padding: 13px;
+        font-size: 0.75rem;
+        letter-spacing: 0.75;
+        color: var(--color-wave);
+    }
+
+    #nav-btn-open {
+        visibility: hidden;
+    }
+
+    #nav-btn-close {
+        visibility: hidden;
+    }
+}
+
+/* Desktop and Beyond */
+@media (min-width: 900px) {
+
+}
+
+/* Beyond Desltop */
+@media (min-width: 1160px) {
+    #logo {
+        width: 300px;
+        height: 204px;
+    }
+
+    nav {
+        min-height: 205px;
+    }
+
+    .nav-item {
+        padding: 15px 30px;
+        font-size: 1.00rem;
+        letter-spacing: 1.00;
+        color: var(--color-wave);
+    }
+}
+
+/* 8. Header - 8.1 Hero Area
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.welcome {
+    margin: 0 auto;
+    max-width: var(--max-width);
+}
+
+.welcome-bubble {
+    background-repeat: no-repeat;
+    background-position: bottom 45px center;
+    background-size: 344px 343px;
+    background-image: url("../images/brea-bubble-white.png");
+}
+
+.welcome-text-container {
+    width: calc(100% - 42px);
+    margin: 21px;
+}
+
+.app-screen-container {
+    position: relative;
+    width: 199px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.app-screen {
+    height: 368px;
+}
+
+.coming-soon-bubble {
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    right: -40px;
+    width: 114px;
+    height: 113px;
+}
+
+.coming-soon-text {
+    z-index: 21;
+    position: absolute;
+    top: 42px;
+    right: -33px;
+    width: 100px;
     color: var(--color-white);
     text-align: center;
+    text-transform: uppercase;
+    line-height: 1.20;
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    .welcome-bubble {
+        background-position: bottom 90px right -10%;
+        background-size: 404px 401px;
+    }
+
+    .welcome-text-container {
+        padding-top: 26px;
+        margin: 21px 37px;
+    }
+
+    .app-screen-container {
+        width: 251px;
+    }
+    
+    .app-screen {
+        height: 465px;
+    }
+
+    .coming-soon-bubble {
+        right: -25px;
+        width: 133px;
+        height: 133px;
+    }
+
+    .coming-soon-text {
+        top: 48px;
+        right: -8px;
+    }
+}
+
+/* Desktop and Beyond */
+@media (min-width: 900px) {
+    .welcome-bubble {
+        background-size: 550px 548px;
+    }
+
+    .welcome-text-container {
+        padding-top: 50px;
+        margin: 21px 37px;
+    }
+
+    .app-screen-container {
+        width: 342px;
+        padding-top: 20px;
+    }
+
+    .app-screen {
+        height: 635px;
+    }
+
+    .coming-soon-bubble {
+        top: -20px;
+        right: -40px;
+        width: 189px;
+        height: 188px;
+    }
+
+    .coming-soon-text {
+        top: 42px;
+        right: -10px;
+        width: 130px;
+        font-weight: 900;
+        line-height: 1.47;
+    }
+}
+
+/* Beyond Desktop */
+@media (min-width: 1140px) {
+    .welcome-bubble {
+        background-position: top right 10%;
+        background-size: 600px 598px;
+    }
+}
+
+
+/* 9. Main
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.init-text {
+    padding-top: 21px;
+}
+
+#challenges {
+    padding: 21px 0;
+    background: var(--color-air);
+}
+
+#newsletter {
+    padding: 41px 0;
+    background: var(--color-water);
+}
+
+#social-media {
+    width: 100%;
+    padding: 41px 0;
+    background: var(--color-warmth);
+}
+
+.content-social-buttons {
+    display: flex;
+    margin-top: 21px;
+    margin-bottom: 21px;
+    justify-content: center;
+}
+
+.illu-bubble-info {
+    background-position: bottom center;
+    background-size: 261px 209px;
+}
+
+.illu-bubble-orga {
+    background-position: bottom 65px center;
+    background-size: 261px 211px;
+}
+
+.illu-bubble-checkup {
+    background-position: bottom 40px center;
+    background-size: 261px 209px;
+}
+
+.illu-bubble-selfcare {
+    background-position: bottom 20px center;
+    background-size: 238px 228px;
+}
+
+.illu-info {
+    width: 241px;
+}
+
+.illu-orga {
+    height: 262px;
+}
+
+.illu-checkup {
+    width: 255px;
+}
+
+.illu-selfcare {
+    width: 241px;
+    margin-bottom: 68px;
+}
+
+#team {
+    padding: 21px 0;
+    background-color: var(--color-air);
+}
+
+.team-image-container {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-image {
+    width: 258px;
+}
+
+.team-bubble {
+    z-index: 10;
+    position: absolute;
+    transform: translateX(-320px);
+    bottom: -20px;
+    height: 123px;
+    opacity: 60%;
+}
+
+.team-text-container {
+    z-index: 11;
+    position: relative;
+    padding-top: 20px;
+}
+
+#sponsor {
+    padding: 21px 0;
+}
+
+.sponsor-image-container {
+    display: grid;
+    grid-gap: 27px;
+    grid-template-columns: 65px 79px 67px;
+}
+
+.sponsor-image {
+    max-width: 100%;
+}
+
+.sponsor-image.esf {
+    height: 24px;
+}
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    .init-text {
+        width: 410px;
+    }
+
+    .illu-headlines {
+        display: flex; 
+        align-items: center;
+    }
+
+    .illu-bubble-info {
+        background-position: bottom right -20px;
+        background-size: 458px 368px;
+    }
+    
+    .illu-bubble-orga {
+        background-position: bottom 95px left -80px;
+        background-size: 444px 359px;
+    }
+    
+    .illu-bubble-checkup {
+        background-position: bottom 55px right -50px;
+        background-size: 458px 368px;
+    }
+    
+    .illu-bubble-selfcare {
+        background-position: bottom 30px left -40px;
+        background-size: 407px 406px;
+        padding-bottom: 10px;
+    }
+    
+    .illu-info {
+        width: 390px;
+    }
+    
+    .illu-orga {
+        height: 465px;
+    }
+    
+    .illu-checkup {
+        width: 449px;
+    }
+    
+    .illu-selfcare {
+        width: 403px;
+        margin-right: 20px;
+    }
+
+    .challenges-container {
+        width: 410px;
+    }
+
+    .newsletter-headline {
+        width: 460px;
+        margin: 0 auto;
+    }
+
+    .social-media-headline {
+        width: 480px;
+        margin: 0 auto;
+    }
+
+    .team-image-container {
+        position: relative;
+        float: left;
+        margin: 20px 40px 45px 0;
+        text-align: center;
+    }
+
+    .team-bubble {
+        transform: translateX(-420px);
+        height: 187px;
+    }
+
+    .team-image {
+        width: 319px;
+    }
+
+    .team-text-container {
+        padding-top: 0px;
+    }
+
+    #sponsor {
+        padding: 31px 0;
+    }
+
+    .sponsor-image-container {
+        grid-gap: 44px;
+        grid-template-columns: 98px 120px 104px 51px 104px;
+    }
+    
+    .sponsor-image.esf {
+        height: 36px;
+    }
+}
+
+/* Desktop and Beyond */
+@media (min-width: 900px) {
+    .init-text {
+        width: 560px;
+    }
+
+    .illu-bubble-info {
+        background-position: bottom right -50px;
+        background-size: 663px 533px;
+        padding-top: 15px;
+    }
+    
+    .illu-bubble-orga {
+        background-position: bottom 95px left -120px;
+        background-size: 616px 498px;
+    }
+    
+    .illu-bubble-checkup {
+        background-position: bottom 75px right -40px;
+        background-size: 663px 533px;
+    }
+    
+    .illu-bubble-selfcare {
+        background-position: bottom 10px left -120px;
+        background-size: 574px 573px;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        margin-bottom: 30px;
+    }
+
+    .illu-info {
+        width: 500px;
+    }
+    
+    .illu-orga {
+        height: 647px;
+    }
+    
+    .illu-checkup {
+        width: 583px;
+    }
+    
+    .illu-selfcare {
+        width: 505px;
+    }
+
+    .newsletter-headline {
+        width: 850px;
+    }
+
+    .social-media-headline {
+        width: 750px;
+    }
+
+    .challenges-container {
+        width: 560px;
+    }
+
+    #team {
+        padding-bottom: 63px;
+    }
+
+    .team-image {
+        width: 407px;
+    }
+
+    .team-bubble {
+        transform: translateX(-520px);
+        bottom: -60px;
+        height: 234px;
+        opacity: 60%;
+    }
+
+    .sponsor-image-container {
+        grid-gap: 63px;
+        grid-template-columns: 120px 153px 123px 51px 126px;
+    }
+    
+    .sponsor-image.esf {
+        height: 36px;
+    }
+}
+
+/* Beyond Desktop */
+@media (min-width: 1440px) {
+    .illu-bubble-info {
+        background-position: bottom right 90px;
+        background-size: 663px 533px;
+        padding-top: 15px;
+    }
+    
+    .illu-bubble-orga {
+        background-position: bottom 95px left;
+        background-size: 616px 498px;
+    }
+    
+    .illu-bubble-checkup {
+        background-position: bottom 75px right;
+        background-size: 663px 533px;
+    }
+    
+    .illu-bubble-selfcare {
+        background-position: bottom 10px left;
+        background-size: 574px 573px;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        margin-bottom: 30px;
+    }
+
+    .sponsor-image-container {
+        grid-gap: 67px;
+        grid-template-columns: 167px 200px 174px 82px 173px;
+    }
+    
+    .sponsor-image.esf {
+        height: 53px;
+    }
+}
+
+
+/* 9. Main - 9.1 Imprint
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.imprint {
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+/* 9. Main - 9.2 Privacy Policy
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.privacy {
+    height: 100%;
+}
+
+
+/* 10. Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.footer-content {
+    height: 108px;
+    margin-top: 21px;
+}
+
+.footer-links {
+    margin-top: 4px;
+}
+
+.footer-links a {
+    margin-right: 21px;
+    font-size: 1.09rem;
+    font-weight: 600;
+    letter-spacing: 0.07rem;
+    color: var(--color-white);
+}
+
+.footer-text {
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1rem;
+    letter-spacing: 0.07rem;
+    color: var(--color-white);
+}
+
+.go-to-top-button {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    right: 0;
+    border-radius: 50px;
+    background-color: var(--color-trust);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px;
+    background-image: url("../images/brea-go-to-top.png");
+}
+
+.footer-social-buttons {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.social-button {
+    display: block;
+    width: 29px;
+    height: 29px;
+    margin-right: 21px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.social-button.last {
+    margin-right: 0px;
+}
+
+.social-button.twitter {
+    width: 33px;
+    background-image: url("../images/twitter.png");
+}
+
+.social-button.linkedin { background-image: url("../images/linkedin.png"); }
+.social-button.facebook { background-image: url("../images/facebook.png"); }
+.social-button.instagram { background-image: url("../images/instagram.png"); }
+
+.invert { 
+    filter: invert(100%);
+}
+
+.grayscale { filter: grayscale(100%); }
+
+/* Tablet to Desktop */
+@media (min-width: 768px) {
+    .footer-content {
+        height: 135px;
+    }
+
+    .footer-links a {
+        margin-right: 41px;
+    }
+
+    .social-button {
+        width: 33px;
+        height: 33px;
+        margin-right: 31px;
+    }
+
+    .social-button.twitter {
+        width: 37px;
+    }
 }

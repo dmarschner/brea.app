@@ -1,33 +1,266 @@
-<!doctype html>
-<html lang=de-de>
+<!DOCTYPE html>
+<html lang="de-de">
     <head>
-        <meta charset=utf-8 />
-        <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1" />
-
-        <link rel=icon type=image/png sizes=96x96 href=images/favicon.png />
-
-        <meta name=apple-mobile-web-app-title content="Brea - Coming Soon" />
-        <meta name=application-name content="Brea - Coming Soon" />
-        <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name=viewport />
-        <meta name=viewport content="width=device-width" />
-
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png">
+    
+        <meta name="apple-mobile-web-app-title" content="Brea">
+        <meta name="application-name" content="Brea">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="Brea - Wir wollen Menschen mit Brustkrebs nachhaltig und ganzheitlich unterstuetzen. Brea begleitet sie vor, waehrend und nach ihrer Therapie, um Betroffenen die Kontrolle ueber ihr eigenes Wohlergehen und Leben zurueckzugeben.">
+    
         <title>Brea - Coming Soon</title>
+    
+        <link href="css/normalize.css" rel="stylesheet" type="text/css">
+        <link href="css/brea.css" rel="stylesheet" type="text/css">
 
-        <link href=css/normalize.css rel=stylesheet />
-        <link href=css/brea.css rel=stylesheet />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" type="text/css">
 
-        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" type="text/css" />
+        <script src="js/brea.app.js"></script>
     </head>
 
-    <body id=body>
-        <div id=content>
-            <div id=coming-soon>
-                <img id=app src=images/logo.png alt="Brea App Logo" importance="high" />
-                <div id=bubble>
-                    <img src=images/bubble-water.png alt="Brea Bubble Water" importance="low" />
-                    <h3>COMING SOON</h3>
+    <body id="body">
+        <div class="page">
+            <header>
+                <div class="header">
+                    <div class="navbar">
+                        <a href="index.html"><img id="logo" src="images/logo.svg" alt="Brea Logo" /></a>
+                        
+                        <div id="nav-btn-open" onclick="toggleNavigation()">
+                            <div class="rect-16x2"></div>
+                            <div class="rect-16x2"></div>
+                            <div class="rect-8x2"></div>
+                        </div>
+
+                        <nav id="nav">
+                            <div id="nav-btn-close" onclick="toggleNavigation()">
+                                <img width="16" height="16" src="images/brea-close-button.png" alt="X" />
+                            </div>
+
+                            <ul class="nav-list">
+                                <li><a class="nav-item" href="#features" onclick="toggleNavigation()">Funktionen</a></li>
+                                <li><a class="nav-item" href="#team" onclick="toggleNavigation()">Gr&uuml;ndungsteam</a></li>
+                                <li><a class="nav-item button" href="#newsletter" onclick="toggleNavigation()">Newsletter</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                
+                    <div class="welcome">
+                        <div class="wrapper welcome-bubble">
+                            <div class="content">
+                                <div class="grid double">
+                                    <div class="welcome-text-container">
+                                        <h1 class="uppercase">Hi, wir sind Brea.</h1>
+                                        <h3 class="opensans">Mit viel Elan und Herzblut arbeiten wir gemeinsam mit medizinischem Fachpersonal an einer mobilen App, die Dich vor, w&auml;hrend, und nach Deiner Brustkrebs-Therapie begleitet.</h3>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="app-screen-container">
+                                            <img class="app-screen" src="images/brea-app-screen.png" alt="Brea App Screen" />
+                                            <img class="coming-soon-bubble" src="images/brea-bubble-water-mini.png" alt="Brea Water Bubble" />
+                                            <h3 class="coming-soon-text">Coming Soon</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </header>
+
+            <main>
+                <div id="features">
+                    <div class="content">
+                        <div class="container">
+                            <div class="grid">
+                                <div class="init-text">
+                                    <h4 class="uppercase mtb16">Brea begleitet Dich t&auml;glich.</h4>
+                                    <p>Ganz gleich in welchem Stadium Deiner Erkrankung Du Dich befindest - Brea steht an Deiner Seite! Um Dich ganzheitlich und nachhaltig zu unterst&uuml;tzen, setzen wir auf unterschiedliche Ans&auml;tze.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper illu-bubble-info bubble-air">
+                        <div class="content">
+                            <div class="container">
+                                <div class="grid double">
+                                    <div class="grid-item illu-headlines">
+                                        <div>
+                                            <h4 class="uppercase mtb16">Informationen</h4>
+                                            <h2>Alles aus einer Hand!</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-item center">
+                                        <img class="illu-info" src="images/brea-illu-information.png" alt="Brea Illustration Informationen" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper illu-bubble-orga bubble-warmth">
+                        <div class="content">
+                            <div class="container">
+                                <div class="grid double">
+                                    <div class="grid-item left illu-headlines">
+                                        <div>
+                                            <h4 class="uppercase mtb16">Organisation</h4>
+                                            <h2>Wir behalten den &Uuml;berblick f&uuml;r Dich!</h2>
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-item left center">
+                                        <img class="illu-orga" src="images/brea-illu-organisation.png" alt="Brea Illustration Organisation" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper illu-bubble-checkup bubble-air">
+                        <div class="content">
+                            <div class="container">
+                                <div class="grid double">
+                                    <div class="grid-item illu-headlines">
+                                        <div>
+                                            <h4 class="uppercase mtb16">Checkup & Monitoring</h4>
+                                            <h2>Wir geben Dir ein St&uuml;ck Kontrolle zur&uuml;ck!</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-item center">
+                                        <img class="illu-checkup" src="images/brea-illu-checkup.png" alt="Brea Illustration Checkup & Monitoring" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper illu-bubble-selfcare bubble-water">
+                        <div class="content">
+                            <div class="container">
+                                <div class="grid double">
+                                    <div class="grid-item left illu-headlines">
+                                        <div>
+                                            <h4 class="uppercase mtb16">Selbstf&uuml;rsorge</h4>
+                                            <h2>Achte auf Dich!</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-item left center">
+                                        <img class="illu-selfcare" src="images/brea-illu-selfcare.png" alt="Brea Illustration Selbstf&uuml;rsorge" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="challenges">
+                    <div class="content">
+                        <div class="grid">
+                            <div class="container challenges-container">
+                                <h4 class="uppercase mtb16">Echter Mehrwert.<br>Echte Herausforderungen.</h4>
+                                <p>Wir stellen hohe Anforderungen an uns und unsere App. Damit wir Dir eine fundierte und wirklich wertstiftende Hilfe bieten k&ouml;nnen, machen wir keine halben Sachen und streben die CE-Zertifizierung als medizinisches Produkt nach dem neuen MDR-Standard an.</p>
+                                <p>Brea entsteht unter engster Zusammenarbeit mit medizinischem Fachpersonal, welches mit Rat und Tat helfen wird, Dir die bestm&ouml;gliche Version von Brea zu liefern.</p>
+                                <p>Den Launch der App planen wir daher f&uuml;r das kommende Jahr 2022.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="newsletter">
+                    <div class="content">
+                        <div class="container">
+                            <h3 class="white center newsletter-headline opensans">Du willst auf dem Laufenden bleiben und au&szlig;erdem hilfreiche Informationen zum Thema Brustkrebs erhalten? Dann trage Dich gerne in unseren Newsletter ein.</h3>
+                            <h3 class="white center newsletter-headline opensans">Vielen Dank f&uuml;r dein Vertrauen!</h3>
+                            
+                            <p class="center"><br><a class="button-trust" href="https://cd086bd3.sibforms.com/serve/MUIEAJlsBApAzWs4RHLz1GbLfdPBdpn7o20e8emyWJe0Wh7imowQm03SVrjpQQQNJtDhEEbLILgL9Az4Bc0vsqistyBsgdTADi7nzSf2qb4xeCHzfUlyWSUI20OoNcrNAqEwC0AeMyCH__nV56KCoZIkbHEprwEFsKKPJOfaXMTNQUmgZiQFwGPeVb9esE0lzQLP_ClwzIH0aoks">Zur Newsletter Anmeldung</a><br><br></p>
+
+                            <p class="white center opensans">Du kannst dein Newsletter-Abo nat&uuml;rlich jederzeit mit einem Klick widerrufen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="social-media">
+                    <div class="content">
+                        <div class="container">
+                            <h3 class="white center social-media-headline opensans">Unterst&uuml;tze Brea und erz&auml;hle Betroffenen aus Deinem Bekannten- und Freundeskreis von uns. Wir werden unser bestes geben eine echte Hilfe zu sein!</h3>
+
+                            <div class="content-social-buttons">
+								<a class="social-button linkedin" href="https://www.linkedin.com/company/brea-app/about/" target="_blank" rel=”noopener noreferrer”></a>
+                                <a class="social-button instagram invert" href="https://instagram.com/brea_app" target="_blank" rel=”noopener noreferrer”></a>
+                                <a class="social-button facebook last" href="https://facebook.com/brea.deutschland" target="_blank" rel=”noopener noreferrer”></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="team">
+                    <div class="content">
+                        <div class="container">
+                            <h2 class="mtb16">Unser Gr&uuml;ndungsteam</h3>
+                        </div>
+                        <div class="container">
+                            <div class="team-image-container">
+                                <img class="team-image" src="images/brea-team.png" alt="Brea Team Foto" />
+                                <img class="team-bubble" src="images/brea-bubble-water-mini.png" alt="Brea Team Bubble" />
+                            </div>
+
+                            <div class="team-text-container">
+                                <p>Hi, wir sind Brea!</p>
+                                <p>Uns drei verbindet eine pers&ouml;nliche Motivation f&uuml;r das Thema Brustkrebs.</p>
+                                <p><a class="underline" href="https://www.linkedin.com/in/jessica-biastoch-27826177/" target="_blank" rel=”noopener noreferrer”>Jessica</a> ist unsere Gr&uuml;nderin und CEO. Sie ist selber 2018 an Brustkrebs erkrankt und hat so alle H&ouml;hen und Tiefen der Erkrankung miterlebt. 2018 suchte sie dann nach einer digitalen L&ouml;sung f&uuml;r die w&auml;hrend und nach der Erkrankung aufkommenden Probleme und so kam sie auf die Idee zu Brea.</p>
+                                <p>Ihr Partner <a class="underline" href="https://www.linkedin.com/in/danielmarschner/" target="_blank" rel=”noopener noreferrer”>Daniel</a> steht seit 15 Jahren an ihrer Seite und hat die ganze Therapie zusammen mit ihr durchlebt. Er ist Mitgr&uuml;nder und CTO von Brea. Durch seine jahrzehntelangen Kenntnisse als Software Entwickler k&uuml;mmert er sich um die technische Umsetzung von Brea. Seine Erfahrungen als n&auml;chster Angeh&ouml;riger fließen zudem in unsere App mit ein.</p>
+                                <p><a class="underline" href="https://www.linkedin.com/in/sarah-gr%C3%A0inne-jankowsky-72479139/" target="_blank" rel=”noopener noreferrer”>Sarah</a> kam 2020 dazu und sie machte unser Team komplett. Als gute Freundin von Jessica hat auch sie den ganzen Verlauf der Krankheit miterlebt. Sarah machte eine &auml;hnliche Erfahrung und erlebte Situationen der &Uuml;berforderung und Desinformation, nachdem sie im Alter von 27 erfahren hatte, dass sie an der seltenen Erkrankung Neurofibromatose Typ1, leidet.</p>
+                                <p>Unsere eigenen Erfahrungen sind unser stetiger Antrieb. Mit Brea wollen wir ein Produkt schaffen, welches einen echten Mehrwert f&uuml;r euch schafft und euch nachhaltig bei eurer Therapie begleitet und unterst&uuml;tzt. Auf der anderen Seite soll es auch Entlastung f&uuml;r Angeh&ouml;rige und dem involvierten medizinischen Personal bieten.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sponsor">
+                    <div class="content">
+                        <div class="container">
+                            <h5>Aktuelle F&ouml;rderer von Brea</h5>
+                            <div class="sponsor-image-container">
+                                <img class="sponsor-image" src="images/sib-logo-red.png" alt="Startup Incubator Berlin" />
+                                <img class="sponsor-image" src="images/hwr-logo-red.png" alt="HWR Berlin" />
+                                <img class="sponsor-image" src="images/berlin-logo.png" alt="Berlin" />
+                                <img class="sponsor-image esf" src="images/esf-berlin-logo.png" alt="ESF im Land Berlin" />
+                                <img class="sponsor-image" src="images/eu-sozialfonds-logo.png" alt="EU Europ&auml;ischer Sozialfonds" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <div class="content">
+                    <div class="footer-content container">
+                        <div class="footer-links">
+                            <a href="index.html">Home</a>
+                            <a href="impressum.html">Impressum</a>
+                            <a href="datenschutz.html">Datenschutz</a>
+                        </div>
+                        
+                        <a href="#" class="go-to-top-button"></a>
+                        
+                        <div class="footer-social-buttons">
+                            <a class="social-button linkedin" href="https://www.linkedin.com/company/brea-app/about/" target="_blank" rel=”noopener noreferrer”></a>
+                            <a class="social-button instagram invert" href="https://instagram.com/brea_app" target="_blank" rel=”noopener noreferrer”></a>
+                            <a class="social-button facebook last" href="https://facebook.com/brea.deutschland" target="_blank" rel=”noopener noreferrer”></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
